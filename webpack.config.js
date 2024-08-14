@@ -61,6 +61,10 @@ module.exports = {
             filename: 'components/textfield.html',
             template: './src/components/textfield.html',
         }),
+        new HtmlWebpackPlugin({
+            filename: 'components/card.html',
+            template: './src/components/card.html',
+        }),
 
     ],
     devServer: {
