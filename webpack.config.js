@@ -40,7 +40,17 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader",
+                  options: {
+                    presets: ['@babel/preset-env']
+                  }
+                }
+              }
         ]
     },
     plugins: [
@@ -64,6 +74,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'components/card.html',
             template: './src/components/card.html',
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'components/banner.html',
+            template: './src/components/banner.html',
         }),
 
     ],

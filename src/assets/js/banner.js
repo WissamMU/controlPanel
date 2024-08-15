@@ -1,7 +1,4 @@
-import"./assets/sass/styeles.scss";
-import 'normalize.css/normalize.css'
 
-console.log("sup");
 (function () {
     const closeBanners= document.querySelectorAll(".js-banner__close");
     closeBanners.forEach( closeBanner => {
