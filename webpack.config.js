@@ -6,11 +6,16 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
 
-    entry: './src/index.js',
+    entry: {
+        'app' : "./src/index.js",
+        'assets/js/banner' : "./src/assets/js/banner.js",
+        'assets/js/tabs' : "./src/assets/js/tabs",
+        
+    },
 
     output: {
         path: path.join(__dirname, '/app'),
-        filename: 'app.js'
+        filename: '[name].js'
     },
 
     module: {
@@ -62,22 +67,37 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html',
+            chunks: ['app']
         }),
         new HtmlWebpackPlugin({
             filename: 'components/button.html',
             template: './src/components/button.html',
+            chunks: ['app']
         }),
         new HtmlWebpackPlugin({
             filename: 'components/textfield.html',
             template: './src/components/textfield.html',
+            chunks: ['app']
         }),
         new HtmlWebpackPlugin({
             filename: 'components/card.html',
             template: './src/components/card.html',
+            chunks: ['app']
         }),
         new HtmlWebpackPlugin({
             filename: 'components/banner.html',
             template: './src/components/banner.html',
+            chunks: ['app','assets/js/banner']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'components/list.html',
+            template: './src/components/list.html',
+            chunks: ['app']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'components/tabs.html',
+            template: './src/components/tabs.html',
+            chunks: ['app' , 'assets/js/tabs']
         }),
 
     ],
