@@ -1,29 +1,27 @@
-$upload-size: 400px;
 .c-upload {
     @include e-card;
-    min-width: $upload-size;
-    min-height: $upload-size;
+    min-width: 400px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: spacing("normal") spacing("normal") spacing("wide");
 }
 
-.c-upload__header {
-    display: flex;
-    justify-content: space-between;
-}
-
 .c-upload__label {
     color: $color-link;
     font-size: 14px;
     cursor: pointer;
-    margin-right: auto;
 }
 
 .c-upload__label--remove {
     display: none;
     color: $color-red;
+}
+
+.c-upload__header {
+    display: flex;
+    justify-content: space-between;
 }
 
 .c-upload__body {
@@ -32,7 +30,7 @@ $upload-size: 400px;
     flex-direction: column;
     justify-content: center;
     position: relative;
-}
+  }
 
 .c-upload__image {
     width: 100%;
@@ -44,8 +42,8 @@ $upload-size: 400px;
     background-size: 150px;
     margin-bottom: spacing("small");
 
-    img{
-        max-width: 100%;
+    img {
+        min-width: 100%;
         height: auto;
         display: inline;
     }
@@ -62,22 +60,18 @@ $upload-size: 400px;
     cursor: pointer;
 }
 
-.c-upload__subtitle {
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 14px;
-}
+//small
 
-// small upload
+
 .c-upload--small {
-    min-width: initial;
-    min-height: initial;
+    min-width: inherit;
+    min-height: inherit;
     box-shadow: none;
     background: none;
     padding: 0;
 
     .c-upload__body {
-        @include e-card;
+        @include     e-card;
         width: 150px;
         height: 150px;
         overflow: hidden;
@@ -93,24 +87,15 @@ $upload-size: 400px;
 }
 
 // state
+
 .has-image.c-upload {
-    .c-upload__label--remove {
+    .c-upload__label--remove{
         display: block;
     }
-    .c-upload__image {
+    .c-upload__image{
         background: none;
-        img {
+        img{
             display: block;
         }
     }
 }
-
-//responsive
-@media (max-width: $upload-size) {
-    .c-upload {
-        min-width: initial;
-        width: 100%;
-    }
-}
-
-

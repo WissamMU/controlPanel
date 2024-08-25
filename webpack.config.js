@@ -7,10 +7,11 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = {
 
     entry: {
-        'app' : "./src/index.js",
-        'assets/js/banner' : "./src/assets/js/banner.js",
-        'assets/js/tabs' : "./src/assets/js/tabs",
-        
+        'app': "./src/index.js",
+        'assets/js/banner': "./src/assets/js/banner.js",
+        'assets/js/tabs': "./src/assets/js/tabs",
+        'assets/js/upload': './src/assets/js/upload.js',
+
     },
 
     output: {
@@ -34,6 +35,19 @@ module.exports = {
                 ],
             },
             {
+                test: /\.(png|svg|jpe?g|gif)$/,
+                exclude: /fonts/,
+                use: [
+                  {
+                    loader: "file-loader", 
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: "assets/images",
+                    }
+                  }
+                ]
+              },
+            {
                 test: /\.(svg|eot|woff|woff2|ttf)$/,
                 exclude: /images/,
                 use: [
@@ -50,12 +64,12 @@ module.exports = {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
-                  loader: "babel-loader",
-                  options: {
-                    presets: ['@babel/preset-env']
-                  }
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
                 }
-              }
+            }
         ]
     },
     plugins: [
@@ -87,7 +101,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'components/banner.html',
             template: './src/components/banner.html',
-            chunks: ['app','assets/js/banner']
+            chunks: ['app', 'assets/js/banner']
         }),
         new HtmlWebpackPlugin({
             filename: 'components/list.html',
@@ -97,12 +111,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'components/tabs.html',
             template: './src/components/tabs.html',
-            chunks: ['app' , 'assets/js/tabs']
+            chunks: ['app', 'assets/js/tabs']
         }),
         new HtmlWebpackPlugin({
             filename: 'components/upload.html',
             template: './src/components/upload.html',
-            chunks: ['app']
+            chunks: ['app', 'assets/js/upload']
         }),
 
     ],
