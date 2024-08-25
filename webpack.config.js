@@ -118,6 +118,11 @@ module.exports = {
             template: './src/components/upload.html',
             chunks: ['app', 'assets/js/upload']
         }),
+        new HtmlWebpackPlugin({
+            filename: 'components/actions.html',
+            template: './src/components/actions.html',
+            chunks: ['app']
+        }),
 
     ],
     devServer: {
