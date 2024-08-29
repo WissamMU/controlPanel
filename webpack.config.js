@@ -81,7 +81,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html',
-            chunks: ['app']
+            chunks: ['app' , 'assets/js/banner' , 'assets/js/tabs', 'assets/js/chart']
         }),
         new HtmlWebpackPlugin({
             filename: 'components/button.html',
