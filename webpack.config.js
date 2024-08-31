@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin');
+
 
 module.exports = {
 
@@ -137,6 +139,26 @@ module.exports = {
             filename: 'components/chart.html',
             template: './src/components/chart.html',
             chunks: ['app', 'assets/js/chart']
+        }),
+        new HtmlWebpackPartialsPlugin({
+            path: path.join(__dirname, './src/components/help.html'),
+            location: "help",
+            template__filename: ["index.html"],
+        }),
+        new HtmlWebpackPartialsPlugin({
+            path: path.join(__dirname, './src/components/banner.html'),
+            location: "banner",
+            template__filename: ["index.html"],
+        }),
+        new HtmlWebpackPartialsPlugin({
+            path: path.join(__dirname, './src/components/chart.html'),
+            location: "chart",
+            template__filename: ["index.html"],
+        }),
+        new HtmlWebpackPartialsPlugin({
+            path: path.join(__dirname, './src/components/sidebar.html'),
+            location: "sidebar",
+            template__filename: ["index.html"],
         }),
 
     ],
