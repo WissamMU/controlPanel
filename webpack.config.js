@@ -91,6 +91,21 @@ module.exports = {
             chunks: ['app', 'assets/js/upload',]
         }),
         new HtmlWebpackPlugin({
+            filename: 'products.html',
+            template: './src/products.html',
+            chunks: ['app',]
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'users.html',
+            template: './src/users.html',
+            chunks: ['app',]
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'orders.html',
+            template: './src/orders.html',
+            chunks: ['app',]
+        }),
+        new HtmlWebpackPlugin({
             filename: 'components/button.html',
             template: './src/components/button.html',
             chunks: ['app']
@@ -148,7 +163,7 @@ module.exports = {
         new HtmlWebpackPartialsPlugin({
             path: path.join(__dirname, './src/components/help.html'),
             location: "help",
-            template_filename: ["index.html" , "add-product.html"],
+            template_filename: ["index.html" , "add-product.html" , "products.html", "users.html","orders.html"],
         }),
         new HtmlWebpackPartialsPlugin({
             path: path.join(__dirname, './src/components/banner.html'),
@@ -163,7 +178,7 @@ module.exports = {
         new HtmlWebpackPartialsPlugin({
             path: path.join(__dirname, './src/components/sidebar.html'),
             location: "sidebar",
-            template_filename: ["index.html", "add-product.html"],
+            template_filename: ["index.html", "add-product.html" , "products.html", "users.html","orders.html"],
         }),
 
     ],
@@ -171,6 +186,7 @@ module.exports = {
         static: { directory: path.join(__dirname, './app') },
         compress: true,
         open: true,
+        hot: false,
         port: 9000,
         devMiddleware: {
             writeToDisk: true,
