@@ -5,3 +5,5 @@ to look at the project
 1- npm i
 
 2- npm run build
+
+or visit https://wissammu.github.io/controlPanel/
